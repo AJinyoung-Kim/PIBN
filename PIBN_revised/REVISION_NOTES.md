@@ -10,6 +10,8 @@
 | `paper.tex` | 수정 본문 (elsarticle). `pdflatex → bibtex → pdflatex ×2` 로 오류 없이 컴파일됨 (19 pp.) |
 | `supplementary.tex` | SI 완성본(13쪽). S1 모델 그림(S1–S5), S2 재료 특성(사진·top-view·FT-IR·EDS·porosity), S3 모델 상세·벤치마크(Table S2–S4), S4 파라미터 추정(Table S5–S7), S5 Python 코드 |
 | `code/ln3_model.py` | 3상 LN 모델·피팅·벤치마크 재현 코드 (SI S5에 수록; numpy+scipy로 실행 확인) |
+| `data/PIBN_Figure_Data.xlsx` | Figure 2·3·4 재작도용 데이터 워크북 (측정값 파란 글씨, 모델값은 Parameters 시트를 참조하는 살아있는 수식 9,629개; LibreOffice 재계산 오류 0건) |
+| `code/build_figure_data.py` | 위 워크북 생성 스크립트 |
 | `refs.bib` | 변경 없음 |
 | `figures/Fig1.png` | SEM. 30/50 wt% Δt 라벨의 별표(*) 제거 (caption의 별표 문구도 삭제) |
 | `figures/Fig2.png` | 구 2a + 3a + 3c 통합 (ε, λ, IR thermography) |
@@ -161,3 +163,22 @@ SI와 Highlights의 제목도 함께 바꿨습니다.
 주의할 점:
 - **Series(Wiener 하한) 모델이 30–70 wt% NP에서 LN보다 잘 맞습니다(0.17 vs 0.26).** SI에서는 이를 A→0 극한과 연결해 "A_pore≈0.08은 기공 단계가 series 한계에 가깝다"는 해석으로 기술했습니다. 본문 3.1의 "outperforms the standard mixing rules (Lichtenecker, MG, Bruggeman)"는 그대로 참이지만, 심사자가 series bound를 물을 수 있습니다.
 - ϕ_total 재피팅에서 A_pore가 0.43으로 바뀌므로 "A_pore = 0.08 fingerprint"는 open-porosity 입력에 한정된 값입니다(SI S3.3에 명시).
+
+## Figure 2·3·4 재작도용 데이터 워크북 (`data/PIBN_Figure_Data.xlsx`)
+
+첨부하신 `PI_BN_RawData_Model.xlsx`의 구성(Samples_Master + Model_Calculator 살아있는 수식 + 그림별 시리즈 시트)을 따르되, 새 그림 번호 체계로 다시 만들었습니다.
+
+| 시트 | 그림 패널 | 내용 |
+|---|---|---|
+| Parameters | – | 모델 상수 14개(노란 셀, 이름 정의). 바꾸면 모든 모델 시리즈가 재계산 |
+| Samples | – | 10개 필름 측정값(Table 2–4, SEM 두께, Δt) + 모델 열(ϕ_BN, ρ_solid, ϕ_total, ε_LN, λ_LN, 잔차) + RMSE 검증 셀 |
+| Fig2a_Dielectric | 2a | ε 측정(NP/HP), 모델(각 필름 open porosity), KOPTRI 점, ε=1 기준선 |
+| Fig2b_Thermal | 2b | λ 측정, 모델, 미측정 플래그(십자 표시용) |
+| Fig2c_IR | 2c | FLIR spot 온도(NP 79.9/144.3/169.0/179.8/183.8, HP 76.4/154.9/196.1/182.7/192.2 °C)와 라벨 문자열 |
+| Fig3a_Tensile | 3a | 인장강도 NP/HP, 변화율(%), 라벨("+78%", "not tested") |
+| Fig3b_CTE | 3b | CTE 측정, Turner, ROM, PCB 창(3–17) |
+| Fig4a_EpsMap / Fig4b_LamMap | 4a/4b | ε, λ 격자(porosity 0–95 % × wt% 0–70, 2 % 간격) + 측정점 오버레이(화살표 dy) |
+| Fig4c_Loci | 4c | 0/10/30/50/70 wt% 각각 porosity 20–95 %(0.5 % 간격)의 ε, λ 궤적 + 70 wt% 측정점. 50 wt% 열은 Fig. S3 데이터 겸용 |
+| Fig4d_MaxLambda | 4d | ε ceiling 1.10–2.40(0.02 간격)에서 loading별 최대 λ와 최적 porosity(INDEX/MATCH), 70 wt% 별표(1.6 → 0.230 @ 58.5 %, 1.8 → 0.308 @ 50 %) |
+
+주의: 이전 워크북의 λ 측정값은 옛 그림에서 디지타이즈한 값(0.06, 0.09, 0.047, 0.084, 0.11)이었습니다. 새 워크북은 Table 3의 α·ρ·Cp 값(0.063, 0.091, 0.051, 0.088, 0.114)을 씁니다. 모델 예측은 원고 Table 2와 ±0.002 이내로 일치하며, 시트 값만으로 8개 패널을 그려 확인했습니다.
