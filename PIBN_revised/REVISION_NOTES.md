@@ -52,7 +52,26 @@
 3. **구 Fig. 6b의 "Stars mark the recommended operating point on each locus" 문장** 삭제: 해당 패널(현 Fig. 4c)에는 별표가 없고, 별표는 Fig. 4d에 있습니다.
 4. **SI 섹션 번호 유지**: 본문이 S3.5, S4.2, Table S11, Eq. S8, Section S5를 인용하므로, 새 그림 S2–S5는 S1 안의 소절(S1.2–S1.5)로 넣어 기존 절 번호를 보존했습니다.
 
-## 저자 입력이 필요한 자리표시자 (`\hl{}`, 주황색)
+## 저자·소속·자리표시자 (2차 반영)
+
+- 저자: Jinyoung Kim (교신저자), 소속: School of Chemical and Biomolecular Engineering, Georgia Institute of Technology, Atlanta, GA 30332, USA. SI 표제부와 CRediT에도 동일하게 반영.
+- Introduction 앞 `\newpage` (Overleaf 사본의 추가 사항) 반영.
+- 아래 주황색 값은 **임의로 채운 가안**이므로 반드시 실제 값으로 교체하거나 확인 후 `\hl{}`을 제거하세요.
+
+| 위치 | 임의로 넣은 값 | 근거 |
+|---|---|---|
+| 표제부 | `[e-mail address]` | 교신저자 e-mail (미입력) |
+| 1 Intro, 4.3 | bulk h-BN through-plane λ ≈ 30 W m⁻¹ K⁻¹ | Guerra 2019가 인용하는 c축 값 범위(~2–30)의 상한; 서론과 4.3을 같은 값으로 통일 |
+| 2.5 | LCR meter: E4980A, Keysight; 전극 지름 20 mm; sputtered electrodes 없음(without) | 통상적 구성. 4.2의 air-gap 논의와 부합하도록 "without" 선택 |
+| 2.5, Acknowledgements | Cooperative Equipment Center, Yonsei University | SEM 이미지 워터마크(YONSEI) |
+| 2.5 | ε 불확도 ±0.05 (≈3%), CTE ±1 ppm K⁻¹ | LCR 접촉 측정과 TMA의 통상 반복 정밀도 |
+| Fig. 2c | 평형 시간 5 min | 통상 값 |
+| 4.4 | CTE HP-only 사유 문장 | 사실 확인 필요 |
+| CRediT | 공저자 추가 안내 | |
+| Data availability | Zenodo DOI 자리 | |
+| Acknowledgements | 과제 정보 문장 | |
+
+## (이전) 저자 입력이 필요한 자리표시자 (`\hl{}`, 주황색)
 
 | 위치 | 내용 |
 |---|---|
