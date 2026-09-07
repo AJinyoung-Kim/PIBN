@@ -1,8 +1,8 @@
 %% ============================================================
-%% Supplementary Material -- skeleton (revised)
+%% Supplementary Material (revised)
 %% Companion to: "Model-Guided Design of Porous Polyimide/Boron Nitride Films for Low-Permittivity, Thermally Conductive Packaging"
 %% Compile with pdfLaTeX. Section numbering uses the S-prefix.
-%% Orange \hl{} marks = content to be completed by the authors.
+%% Orange \hl{} marks = provisional values to be confirmed by the author.
 %% ============================================================
 \documentclass[10pt,a4paper]{article}
 \usepackage[margin=2.4cm]{geometry}
@@ -15,7 +15,9 @@
 \usepackage{xcolor}
 \usepackage{setspace}
 \usepackage[font=footnotesize]{caption}
-\newcommand{\hl}[1]{\colorbox{orange}{\parbox{0.93\linewidth}{#1}}}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,columns=fullflexible,frame=single,keepspaces=true,showstringspaces=false,commentstyle=\color{gray}}
+\newcommand{\hl}[1]{\textcolor{orange}{\textbf{[#1]}}}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
 \graphicspath{{figures/}}
 
@@ -33,6 +35,8 @@
 \newcommand{\ABN}{\ensuremath{A_{\mathrm{BN}}}}
 \newcommand{\lamBN}{\ensuremath{\lambda_{\mathrm{BN,eff}}}}
 \newcommand{\phimax}{\ensuremath{\phi_{\max}}}
+\newcommand{\phiBN}{\ensuremath{\phi_{\mathrm{BN}}}}
+\DeclareSIUnit{\ppm}{ppm}
 
 \title{\bfseries Supplementary Material\\[4pt]
 \large Model-Guided Design of Porous Polyimide/Boron Nitride Films for Low-Permittivity, Thermally Conductive Packaging}
@@ -156,26 +160,32 @@ line marks the as-fabricated porosity of the 70~wt\% NP film (54\%).}
 \label{si:characterization}
 
 \subsection{Film photographs}
+Figure~\ref{fig:S6} shows the as-imidized (NP) and hot-pressed (HP) films. The neat and 10~wt\% films are translucent and show the millimetre-scale surface texture of the NIPS sponge; from 30~wt\% upward the films are opaque and matte because the h-BN platelets scatter light, and hot-pressing smooths the surface at every composition.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\linewidth]{FigS6_photos.png}
-\caption{Photographs of the PI/h-BN films: (a--e) non-pressed and (f--j) hot-pressed at 0, 10, 30, 50, and 70~wt\% h-BN. \hl{Add composition column headers, NP/HP row labels, and a scale bar directly on the figure, and crop the black margin.}}
+\caption{Photographs of the PI/h-BN films: (a--e) non-pressed and (f--j) hot-pressed at 0, 10, 30, 50, and 70~wt\% h-BN (columns). Each frame shows a $\sim$\SI{1}{\centi\meter} square region of the film surface under identical illumination.}
 \label{fig:S6}
 \end{figure}
 
 \subsection{Top-view SEM}
+Figure~\ref{fig:S7} shows the film surfaces at 30, 50, and 70~wt\% h-BN. At $\times$500 the surface porosity increases with loading, from a largely closed skin at 30~wt\% to an open, uniformly perforated surface at 70~wt\%. At $\times$5{,}000 the 30~wt\% film shows agglomerates of near-spherical particles of $\sim$100--\SI{300}{\nano\meter} on a smooth PI skin, whereas the 50 and 70~wt\% films show platelets embedded in and protruding from the pore walls. The change from a closed skin to an open surface with loading is consistent with the higher open (intrusion) porosity of the 70~wt\% NP film relative to its total porosity (Table~3 of the main text).
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\linewidth]{FigS7_topview.png}
-\caption{Top-view FE-SEM micrographs of PI/h-BN films at 30, 50, and 70~wt\% h-BN (columns) at two magnifications (rows). \hl{Label the rows by magnification ($\times$500, $\times$5{,}000) and the columns by composition on the figure.}}
+\caption{Top-view FE-SEM micrographs of NP PI/h-BN films at 30, 50, and 70~wt\% h-BN (columns) at $\times$500 (top row, scale bar \SI{10}{\micro\meter}) and $\times$5{,}000 (bottom row, scale bar \SI{1}{\micro\meter}).}
 \label{fig:S7}
 \end{figure}
 
 \subsection{FT-IR}
+Figure~\ref{fig:S8} confirms complete imidization at every composition. All spectra show the imide C=O asymmetric and symmetric stretches at 1778 and \SI{1722}{\per\centi\meter}, the aromatic C=C band at $\sim$\SI{1500}{\per\centi\meter}, and the imide C--N--C stretch at \SI{1366}{\per\centi\meter}; the amide carbonyl band of the poly(amic acid) precursor at $\sim$\SI{1660}{\per\centi\meter} is absent. In the composites the in-plane B--N stretch of h-BN ($\sim$\SI{1370}{\per\centi\meter}) overlaps the C--N--C band, and the out-of-plane B--N bending mode at $\sim$\SI{810}{\per\centi\meter} grows monotonically with loading; both bands are absent in the neat film. The band positions quoted in Section~2.3 of the main text are those read from these spectra.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.75\linewidth]{FigS8_ftir.png}
-\caption{FT-IR spectra (Jasco FT/IR-460 Plus, 600--\SI{4000}{\per\centi\meter}) confirming complete imidization. \hl{Confirm the band positions against the recorded spectra and use one set of values here and in Section~2.3 of the main text (currently 1720/1780 and \SI{1380}{\per\centi\meter} in the main text vs.\ 1722/1778 and \SI{1366}{\per\centi\meter} in an earlier draft of this caption). Re-plot the figure with a \si{\per\centi\meter} axis label and the typeface of the other figures.}}
+\caption{FT-IR transmittance spectra (Jasco FT/IR-460 Plus, 600--\SI{4000}{\per\centi\meter}; the 2500--\SI{650}{\per\centi\meter} region is shown) of NP films at 0--70~wt\% h-BN, offset vertically. Dashed lines mark the imide C=O stretches (1778, \SI{1722}{\per\centi\meter}), the aromatic C=C band ($\sim$\SI{1500}{\per\centi\meter}), the overlapping C--N--C and B--N stretches (\SI{1366}{\per\centi\meter}), and the B--N bending mode ($\sim$\SI{810}{\per\centi\meter}).}
 \label{fig:S8}
 \end{figure}
 
@@ -201,74 +211,229 @@ HP 50 wt\%  & 21.11 & 43.12 & 26.62 & 9.15  & 100 \\
 HP 70 wt\%  & 28.17 & 29.15 & 36.48 & 6.20  & 100 \\
 \bottomrule
 \end{tabular}\\[3pt]
-\parbox{0.85\linewidth}{\footnotesize A second NP 70~wt\% spot gave B/C/N/O = 28.81/27.93/37.01/6.25~wt\%, confirming spatial uniformity. $^{\dagger}$The apparent B signal in the neat NP film, which contains no boron, reflects the EDS quantification limit for light elements (B~K$\alpha$ overlaps the C/N/O region) and is treated as background.}
+\parbox{0.85\linewidth}{\footnotesize A second NP 70~wt\% spot gave B/C/N/O = 28.81/27.93/37.01/6.25~wt\%, confirming spatial uniformity. The theoretical B content of h-BN is 43.6~wt\%, giving 4.4, 13.1, 21.8, and 30.5~wt\% B at 10, 30, 50, and 70~wt\% h-BN. $^{\dagger}$The apparent B signal in the neat NP film, which contains no boron, reflects the EDS quantification limit for light elements (B~K$\alpha$ overlaps the C/N/O region) and is treated as background.}
 \end{table}
 
-\hl{To be added: mercury intrusion pore-size distributions for all ten films. The comparison of open (intrusion) and total (density-derived) porosity is given in Table~3 of the main text.}
+\subsection{Porosity}
+Open porosity was taken from the total intruded volume of the mercury intrusion run on each film (PM33GT, Quantachrome), and total porosity from the bulk density (Section~\ref{si:volfrac}); the two are listed together in Table~3 of the main text and compared in Section~4.1. The intrusion curves were used for the open-porosity values only; the pore-size distributions are available from the author on request.
 
 %% ------------------------------------------------------------
 \section{Model details and benchmarks}
 \label{si:model}
 
 \subsection{Sequential three-phase Lewis--Nielsen formulation}
-\hl{To be completed: full derivation and parameter definitions (main-text
-Eqs.\ 1--3 expanded), including the step-1 (dense composite) and step-2
-(pore incorporation) expressions and the packing-interaction term $\psi$.
-Number the key expression as Eq.~(S8); the main text cites Eq.~S8.}
+\label{si:formulation}
+The Lewis--Nielsen model gives the effective scalar transport property $k$ of a two-phase particulate composite with matrix property $k_m$, filler property $k_f$, and filler volume fraction $\phi$ as
+\begin{equation}
+\frac{k}{k_m} = \frac{1 + A\,B\,\phi}{1 - B\,\psi\,\phi},
+\label{eq:S1}
+\end{equation}
+\begin{equation}
+B = \frac{k_f/k_m - 1}{k_f/k_m + A},
+\label{eq:S2}
+\end{equation}
+\begin{equation}
+\psi = 1 + \frac{1 - \phimax}{\phimax^{2}}\,\phi ,
+\label{eq:S3}
+\end{equation}
+where $A$ is the Einstein coefficient (shape factor) of the dispersed phase and \phimax{} its maximum packing fraction. Eq.~\ref{eq:S1} has three useful limits. For $A \to 0$ it reduces to the series (inverse rule-of-mixtures) model, $k^{-1} = (1-\phi)/k_m + \phi/k_f$ when $\psi \to 1$; for $A \to \infty$ it reduces to the parallel rule of mixtures; and for $A = 1.5$, $\psi = 1$ it is the Maxwell--Garnett expression for dilute spheres. The shape factor therefore interpolates between the Wiener bounds, and a small fitted $A$ means that the dispersed phase acts nearly in series with the matrix.
+
+For the porous composite the model is applied twice. Step~1 mixes the PI matrix with h-BN at the solid-phase volume fraction \phiBN{} (Section~\ref{si:volfrac}):
+\begin{equation}
+\begin{aligned}
+k_{\mathrm{dense}} &= k_{\mathrm{PI}}\,\frac{1 + \ABN\,B\,\phiBN}{1 - B\,\psi\,\phiBN}, \\
+B &= \frac{k_{\mathrm{BN}}/k_{\mathrm{PI}} - 1}{k_{\mathrm{BN}}/k_{\mathrm{PI}} + \ABN}, \qquad
+\psi = 1 + \frac{1-\phi_{\max,\mathrm{BN}}}{\phi_{\max,\mathrm{BN}}^{2}}\,\phiBN .
+\end{aligned}
+\label{eq:S4}
+\end{equation}
+Step~2 introduces the air pores at porosity $\phi_p$ into the dense composite:
+\begin{equation}
+\begin{aligned}
+k_{\mathrm{film}} &= k_{\mathrm{dense}}\,\frac{1 + \Apore\,B_p\,\phi_p}{1 - B_p\,\psi_p\,\phi_p}, \\
+B_p &= \frac{k_{\mathrm{air}}/k_{\mathrm{dense}} - 1}{k_{\mathrm{air}}/k_{\mathrm{dense}} + \Apore}, \qquad
+\psi_p = 1 + \frac{1-\phi_{\max,\mathrm{pore}}}{\phi_{\max,\mathrm{pore}}^{2}}\,\phi_p .
+\end{aligned}
+\label{eq:S5}
+\end{equation}
+Because $k_{\mathrm{air}} < k_{\mathrm{dense}}$, $B_p$ is negative and step~2 always lowers the property. The same equations are used for the dielectric constant ($k = \varepsilon$: $\varepsilon_{\mathrm{PI}} = 3.5$, $\varepsilon_{\mathrm{BN}} = 6.0$, $\varepsilon_{\mathrm{air}} = 1.0$) and for the thermal conductivity ($k = \lambda$: $\lambda_{\mathrm{PI}} = 0.12$, $\lambda_{\mathrm{air}} = \SI{0.026}{\watt\per\meter\per\kelvin}$, $\lambda_{\mathrm{BN}} = \lamBN$ fitted).
+
+The film-level volume fractions used by the zero-parameter mixing rules of Section~\ref{si:mixingrules} are
+\begin{equation}
+f_{\mathrm{air}} = \phi_p, \qquad f_{\mathrm{BN}} = \phiBN\,(1 - \phi_p), \qquad f_{\mathrm{PI}} = (1 - \phiBN)(1 - \phi_p).
+\label{eq:S6}
+\end{equation}
+The residual of film $i$ in state $s$ is
+\begin{equation}
+r_{i,s} = \varepsilon_{r,\mathrm{model}}(\phiBN[i], \phi_{p}[i,s];\,\mathbf{p}) - \varepsilon_{r,\mathrm{meas}}[i,s],
+\label{eq:S7}
+\end{equation}
+and the dielectric parameters $\mathbf{p} = (\ABN, \phi_{\max,\mathrm{BN}}, \Apore, \phi_{\max,\mathrm{pore}})$ are obtained by minimizing the mean squared residual over the ten films,
+\begin{equation}
+\mathcal{L}(\mathbf{p}) = \frac{1}{10}\sum_{s \in \{\mathrm{NP},\mathrm{HP}\}}\sum_{i=1}^{5} r_{i,s}^{2}, \qquad \mathrm{RMSE} = \sqrt{\mathcal{L}} ,
+\label{eq:S8}
+\end{equation}
+subject to the bounds $0.05 \le A \le 20$ and $0.30 \le \phimax \le 0.99$. The thermal objective has the same form over the seven films with measured \lam.
 
 \subsection{Volume-fraction conversion}
-\hl{To be completed: wt\% $\to$ vol\% conversion using $\rho_{\mathrm{PI}}
-= \SI{1.42}{\gram\per\cubic\centi\meter}$ and $\rho_{\mathrm{BN}} =
-\SI{2.29}{\gram\per\cubic\centi\meter}$, with the porosity-corrected film
-volume fractions used throughout, and the $\rho_{\mathrm{solid}}$ values
-behind the $\phi_{\mathrm{total}}$ column of Table~3 of the main text.}
+\label{si:volfrac}
+The h-BN weight fraction of the solids, $w$, was converted to the solid-phase volume fraction with $\rho_{\mathrm{PI}} = \SI{1.42}{\gram\per\cubic\centi\meter}$ and $\rho_{\mathrm{BN}} = \SI{2.29}{\gram\per\cubic\centi\meter}$,
+\begin{equation}
+\begin{aligned}
+\phiBN &= \frac{w/\rho_{\mathrm{BN}}}{w/\rho_{\mathrm{BN}} + (1-w)/\rho_{\mathrm{PI}}}, \\
+\rho_{\mathrm{solid}} &= \left(\frac{w}{\rho_{\mathrm{BN}}} + \frac{1-w}{\rho_{\mathrm{PI}}}\right)^{-1}, \qquad
+\phi_{\mathrm{total}} = 1 - \frac{\rho}{\rho_{\mathrm{solid}}},
+\end{aligned}
+\label{eq:S9}
+\end{equation}
+where $\rho$ is the measured bulk density (Table~3 of the main text). Table~\ref{tab:S2} lists the resulting fractions for all ten films.
 
-\subsection{Sensitivity of the dielectric fit}
-\hl{To be completed. Include a re-fit of the dielectric model using
-$\phi_{\mathrm{total}}$ (density-derived) as the porosity input for the
-seven films with measured density, reporting RMSE and $R^2$ side by side
-with the open-porosity fit used in the main text.}
+\begin{table}[htbp]
+\centering
+\caption{Composition and volume fractions of the ten films. $\phiBN$: h-BN volume fraction of the solid phase; $f_{\mathrm{PI}}$, $f_{\mathrm{BN}}$, $f_{\mathrm{air}}$: film volume fractions from Eq.~\ref{eq:S6} using the open porosity; $\phi_{\mathrm{total}}$ from Eq.~\ref{eq:S9}.}
+\label{tab:S2}
+\small
+\begin{tabular}{@{}ccccccccc@{}}
+\toprule
+h-BN (wt\%) & $\phiBN$ & $\rho_{\mathrm{solid}}$ (\si{\gram\per\cubic\centi\meter}) & State & $\phi_{\mathrm{open}}$ & $f_{\mathrm{PI}}$ & $f_{\mathrm{BN}}$ & $f_{\mathrm{air}}$ & $\phi_{\mathrm{total}}$ \\
+\midrule
+0  & 0      & 1.420 & NP & 0.754 & 0.246 & 0     & 0.754 & --- \\
+   &        &       & HP & 0.434 & 0.566 & 0     & 0.434 & --- \\
+10 & 0.0645 & 1.476 & NP & 0.914 & 0.080 & 0.006 & 0.914 & --- \\
+   &        &       & HP & 0.298 & 0.657 & 0.045 & 0.298 & 0.405 \\
+30 & 0.210  & 1.603 & NP & 0.488 & 0.405 & 0.107 & 0.488 & 0.798 \\
+   &        &       & HP & 0.672 & 0.259 & 0.069 & 0.672 & 0.716 \\
+50 & 0.383  & 1.753 & NP & 0.581 & 0.259 & 0.160 & 0.581 & 0.706 \\
+   &        &       & HP & 0.646 & 0.219 & 0.135 & 0.646 & 0.613 \\
+70 & 0.591  & 1.934 & NP & 0.542 & 0.187 & 0.271 & 0.542 & 0.728 \\
+   &        &       & HP & 0.488 & 0.209 & 0.303 & 0.488 & 0.721 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Sensitivity of the dielectric fit to the porosity definition}
+\label{si:porosityfit}
+The main-text calibration uses the open (intrusion) porosity, which is available for all ten films. Because \eps{} responds to the total air fraction, we re-fitted the dielectric model with $\phi_{\mathrm{total}}$ as the porosity input for the seven films with measured density (Table~\ref{tab:S3}). With the open porosity, the main-text parameter set gives RMSE 0.31 and $R^2 = -0.9$ on these seven films; with the total porosity, the re-fit gives RMSE 0.24 and $R^2 = -0.2$. The porosity definition therefore accounts for a substantial part of the residual, as stated in Section~4.2 of the main text, although the model still does not outperform the data mean. The re-fit moves the pore shape factor from 0.08 to 0.43 (with \ABN{} again weakly determined), which remains well below the isolated-sphere value of 1.5, so the qualitative conclusion that the NIPS sponge shields the field far less efficiently than spherical pores holds for either porosity definition; the numerical value of \Apore{} quoted in the main text is specific to the open-porosity input. The sensitivity of the model to the porosity input is $\partial\eps/\partial\phi_p \approx -1.7$ to $-2.2$ per unit porosity at 50--70~wt\%, so an uncertainty of 3 percentage points in $\phi_p$ corresponds to 0.05--0.07 in \eps, and the 21--31 percentage-point gap between open and total porosity at 30--70~wt\% NP corresponds to 0.4--0.6.
+
+\begin{table}[htbp]
+\centering
+\caption{Dielectric calibration with open vs.\ total porosity as the input to Eq.~\ref{eq:S5}. Open-porosity fit: main-text parameters, ten films; the same parameters are also evaluated on the seven films with measured density. Total-porosity fit: re-fitted on those seven films.}
+\label{tab:S3}
+\footnotesize
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Porosity input & Films & \ABN & \Apore & $\phi_{\max,\mathrm{BN}}$, $\phi_{\max,\mathrm{pore}}$ & RMSE & $R^2$ \\
+\midrule
+Open (main text)          & 10 & 0.68 & 0.08 & 0.99, 0.99 & 0.39 (0.43 NP, 0.36 HP) & $-3.9$ NP, $-3.0$ HP \\
+Open (same parameters)    & 7  & 0.68 & 0.08 & 0.99, 0.99 & 0.31 & $-0.9$ \\
+Total (re-fit)            & 7  & 8--12$^{a}$ & 0.43 & 0.99, 0.99 & 0.24 & $-0.2$ \\
+\bottomrule
+\end{tabular}\\[3pt]
+\parbox{0.9\linewidth}{\footnotesize $^{a}$Weakly determined: values of \ABN{} between 8 and 12 give the same RMSE to within 0.001.}
+\end{table}
 
 \subsection{Uncertainty propagation}
-\hl{To be completed: propagation of the $\alpha$, $C_p$ and $\rho$
-uncertainties into $\lam$ (about 10\%), and the uncertainty of \eps{}
-including the inter-laboratory comparison of Section~4.2.}
+\label{si:uncertainty}
+\emph{Thermal conductivity.} With $\lam = \alpha\rho C_p$ and independent relative uncertainties of 5\% ($\alpha$, laser flash), 3\% ($C_p$, DSC) and 8\% ($\rho$, dominated by the thickness measurement of a porous film), the propagated relative uncertainty is $\sqrt{0.05^2 + 0.03^2 + 0.08^2} = 9.9\%$, i.e.\ about $\pm$\SI{0.03}{\watt\per\meter\per\kelvin} at 70~wt\% and $\pm$0.005--\SI{0.01}{\watt\per\meter\per\kelvin} at 10--50~wt\%. The $+16\%$ residual of the NP 70~wt\% film and the $-8.5\%$ change on hot-pressing (Section~4.3) are therefore comparable to, not larger than, the measurement uncertainty, and are interpreted as indicative only.
+
+\emph{Dielectric constant.} The repeatability of the in-house LCR measurement is about $\pm$\hl{0.05} ($\pm 3\%$). The inter-laboratory comparison on the HP 30~wt\% film (1.864 in-house vs.\ 1.610 at KOPTRI, $-13.6\%$) is a better estimate of the reproducibility for porous films with contact electrodes, because it includes the electrode--surface air gap discussed in Section~4.2. We therefore regard model residuals below $\sim$14\% as within the experimental reproducibility; residuals of 19--38\% (Table~2 of the main text) exceed it.
+
+\emph{Porosity.} The repeatability of mercury intrusion is about $\pm 2$ percentage points. The density-derived total porosity inherits the 8\% uncertainty of $\rho$: $\delta\phi_{\mathrm{total}} = 0.08\,\rho/\rho_{\mathrm{solid}} = 2$--5 percentage points (largest for the densest film, HP 10~wt\%). Through the sensitivity quoted in Section~\ref{si:porosityfit}, both correspond to $\pm$0.04--0.1 in the model \eps.
+
+\emph{CTE.} The TMA repeatability is about $\pm$\hl{1}~\si{\ppm\per\kelvin}, small compared with the 15--30~\si{\ppm\per\kelvin} separation between the measured values and the Turner and rule-of-mixtures bounds (Table~4 of the main text).
 
 \subsection{Benchmark against standard mixing rules}
 \label{si:mixingrules}
-\hl{To be completed: quantitative comparison of the calibrated LN model
-against Lichtenecker, Maxwell--Garnett, and Bruggeman zero-parameter
-mixing rules (the main text cites RMSE 0.26 vs.\ 0.55--0.90 over the
-30--70~wt\% films; state whether NP-only or NP+HP films are included so
-that the value is consistent with the NP-only RMSE of 0.25 quoted in
-Section~4.2).}
+Table~\ref{tab:S4} compares the calibrated three-phase LN model with the zero-parameter three-component mixing rules evaluated with the film volume fractions of Eq.~\ref{eq:S6}: the Lichtenecker logarithmic rule, $\ln\varepsilon = \sum_j f_j \ln\varepsilon_j$; the Maxwell--Garnett rule with PI as the host and h-BN and air as inclusions; the symmetric Bruggeman rule, $\sum_j f_j(\varepsilon_j - \varepsilon)/(\varepsilon_j + 2\varepsilon) = 0$; and, as bounds, the parallel (Wiener upper) and series (Wiener lower) rules. Over the 30--70~wt\% NP films, the range in which the model is used for design, the calibrated LN model gives RMSE 0.26 against 0.55 (Lichtenecker), 0.73 (Bruggeman) and 0.85 (Maxwell--Garnett); over all ten films the corresponding values are 0.39 against 0.48, 0.58 and 0.64. All three symmetric or host-based rules overpredict \eps{} because they treat the pores as inclusions that only partly interrupt the field. The series bound, which corresponds to the $A \to 0$ limit of Eq.~\ref{eq:S1}, lies closest to the NP data at 30--70~wt\% (RMSE 0.17); the fitted $\Apore = 0.08$ places the pore step of the LN model close to this limit, which is the quantitative expression of the statement in Section~3.2 of the main text that the bicontinuous sponge pores act nearly in series with the PI skeleton.
+
+\begin{table}[htbp]
+\centering
+\caption{RMSE of the dielectric constant for the calibrated LN model and zero-parameter mixing rules ($\varepsilon_{\mathrm{PI}} = 3.5$, $\varepsilon_{\mathrm{BN}} = 6.0$, $\varepsilon_{\mathrm{air}} = 1$; film volume fractions from the open porosity). ``30--70~wt\%'' includes the six NP and HP films of that range; ``30--70 NP'' the three NP films quoted in Section~3.1 of the main text.}
+\label{tab:S4}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Model & Parameters & All ten films & 30--70~wt\% & 30--70~wt\% NP \\
+\midrule
+Three-phase LN (calibrated) & 2--3 active & 0.39 & 0.32 & 0.26 \\
+Lichtenecker                & 0 & 0.48 & 0.48 & 0.55 \\
+Bruggeman (symmetric)       & 0 & 0.58 & 0.63 & 0.73 \\
+Maxwell--Garnett (PI host)  & 0 & 0.64 & 0.72 & 0.85 \\
+Parallel (Wiener upper bound) & 0 & 0.88 & 1.04 & 1.19 \\
+Series (Wiener lower bound)   & 0 & 0.40 & 0.32 & 0.17 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 %% ------------------------------------------------------------
 \section{Parameter estimation protocol}
 \label{si:paramest}
 
 \subsection{Dielectric calibration}
-\hl{To be completed: objective function, optimizer settings, initial
-values, and convergence diagnostics.}
+\label{si:dielfit}
+The objective of Eq.~\ref{eq:S8} was minimized with the Nelder--Mead simplex algorithm (SciPy \texttt{optimize.minimize}; $x_{\mathrm{tol}} = 10^{-6}$, $f_{\mathrm{tol}} = 10^{-9}$, at most 4000 iterations) from 16 random starting points drawn uniformly from $\ABN \in [0.3, 6]$, $\Apore \in [0.02, 2]$ and $\phimax \in [0.5, 0.99]$ for both phases; parameter sets outside the bounds of Section~\ref{si:formulation} were penalized. All starts converged to the same ridge: both packing fractions run to the upper bound of 0.99, \Apore{} lies at 0.07--0.09, and the objective is nearly flat in \ABN{} (Table~\ref{tab:S5}). Over $\ABN = 0.05$--6 the RMSE varies by only 0.003, so the dielectric data determine \Apore{} but not \ABN; the value $\ABN = 0.68$ quoted in the main text lies on this ridge and is reported with that qualification. Fixing $\phi_{\max,\mathrm{BN}}$ anywhere between 0.50 and 0.99 and re-fitting the remaining parameters changes the RMSE by less than 0.01 (Table~\ref{tab:S6}), which is why the packing fractions are described as inactive. With the main-text parameter set the model reproduces the NP and HP data with RMSE 0.43 and 0.36, against standard deviations of the measured values of 0.19 and 0.18, so $R^2 = -3.9$ (NP) and $-3.0$ (HP).
 
-\subsection{Degeneracy of the unconstrained thermal fit}
+\begin{table}[htbp]
+\centering
+\caption{Profile of the dielectric objective along \ABN: for each fixed \ABN, the remaining parameters were re-optimized (multi-start Nelder--Mead).}
+\label{tab:S5}
+\small
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\ABN & 0.05 & 0.20 & 0.68 & 1.5 & 6.0 \\
+\midrule
+\Apore & 0.087 & 0.084 & 0.078 & 0.073 & 0.066 \\
+$\phi_{\max,\mathrm{BN}}$, $\phi_{\max,\mathrm{pore}}$ & 0.99, 0.99 & 0.99, 0.99 & 0.99, 0.99 & 0.99, 0.99 & 0.99, 0.99 \\
+RMSE (ten films) & 0.393 & 0.393 & 0.394 & 0.395 & 0.396 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity of the dielectric calibration to the h-BN packing fraction: $\phi_{\max,\mathrm{BN}}$ fixed at the stated value, \ABN, \Apore{} and $\phi_{\max,\mathrm{pore}}$ re-fitted.}
+\label{tab:S6}
+\small
+\begin{tabular}{@{}ccccccc@{}}
+\toprule
+$\phi_{\max,\mathrm{BN}}$ & 0.50 & 0.60 & 0.70 & 0.80 & 0.90 & 0.99 \\
+\midrule
+\Apore & 0.056 & 0.059 & 0.061 & 0.062 & 0.079 & 0.087 \\
+RMSE (ten films) & 0.398 & 0.397 & 0.397 & 0.397 & 0.394 & 0.393 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Thermal calibration and the degeneracy of the unconstrained fit}
 \label{si:degenerate}
-\hl{To be completed: demonstration that the unconstrained three-parameter
-thermal fit converges to a degenerate solution ($A \to 700$, $\phimax \to
-0.10$) with correlated parameters, motivating the single-parameter
-calibration ($\lamBN$ fitted; $A = 5.5$, $\phimax = 0.60$ fixed). The main
-text cites Section~S4.2. Include the RMSE comparison table
-(constrained 0.027/0.030 vs.\ unconstrained
-0.027/\SI{0.023}{\watt\per\meter\per\kelvin}); the main text references
-Table~S11.}
+The thermal model has three step-1 parameters ($\lamBN$, $A_{\mathrm{BN},\lambda}$, $\phi_{\max,\mathrm{BN},\lambda}$); the pore step uses the dielectric pore parameters ($\Apore = 0.08$, $\phi_{\max,\mathrm{pore}} = 0.99$), since the pore geometry is a property of the film, not of the transported quantity. With $A_{\mathrm{BN},\lambda} = 5.5$ and $\phi_{\max,\mathrm{BN},\lambda} = 0.60$ fixed, the single-parameter fit to the seven measured conductivities gives $\lamBN = \SI{6.65}{\watt\per\meter\per\kelvin}$ with $\lambda_{\mathrm{air}} = \SI{0.026}{\watt\per\meter\per\kelvin}$ (6.81 with $\lambda_{\mathrm{air}} = 0.023$; the predicted film conductivities differ by less than \SI{0.001}{\watt\per\meter\per\kelvin} between the two), RMSE 0.027 (NP) and \SI{0.030}{\watt\per\meter\per\kelvin} (HP), and predictions of 0.262 and \SI{0.315}{\watt\per\meter\per\kelvin} for the NP and HP 70~wt\% films.
+
+When all three parameters are released, the multi-start optimizer runs to the edge of the admissible region: $A_{\mathrm{BN},\lambda}$ increases without bound (it reaches the upper limit of 2000 imposed in the code), $\phi_{\max,\mathrm{BN},\lambda}$ falls to 0.06, $\lamBN$ falls to \SI{1.9}{\watt\per\meter\per\kelvin}, and the RMSE improves only from 0.027/0.030 to 0.025 (pooled). Table~\ref{tab:S7} shows why: for any fixed $A_{\mathrm{BN},\lambda}$ between 20 and 700 there is a compensating $\phi_{\max,\mathrm{BN},\lambda}$ that gives the same pooled RMSE to within 0.0002, because in Eq.~\ref{eq:S4} a large $A$ and a small \phimax{} both amplify the filler contribution near the 70~wt\% point and the seven data cannot separate them. The unconstrained solution ($A \sim 10^3$, $\phimax \sim 0.1$) has no physical meaning for a platelet filler, whereas the constrained solution uses literature values for randomly oriented platelets and reproduces the data equally well. This is the basis for the single-parameter calibration adopted in the main text.
+
+\begin{table}[htbp]
+\centering
+\caption{Profile of the thermal objective along $A_{\mathrm{BN},\lambda}$: for each fixed $A$, $\lamBN$ and $\phi_{\max,\mathrm{BN},\lambda}$ were re-optimized (pooled RMSE over the seven measured films, \si{\watt\per\meter\per\kelvin}). The constrained calibration of the main text is the $A = 5.5$, $\phimax = 0.60$ row.}
+\label{tab:S7}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+$A_{\mathrm{BN},\lambda}$ & $\phi_{\max,\mathrm{BN},\lambda}$ & $\lamBN$ (\si{\watt\per\meter\per\kelvin}) & Pooled RMSE & Comment \\
+\midrule
+5.5 (fixed) & 0.60 (fixed) & 6.65 & 0.028 & Main-text calibration \\
+20  & 0.53 & 4.2 & 0.025 & \\
+50  & 0.34 & 2.4 & 0.025 & \\
+100 & 0.25 & 2.1 & 0.025 & \\
+300 & 0.15 & 2.0 & 0.025 & \\
+700 & 0.10 & 1.9 & 0.025 & Unconstrained optimum region \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 %% ------------------------------------------------------------
 \section{Python implementation}
 \label{si:code}
-\hl{To be completed: complete listing of the three-phase Lewis--Nielsen model
-and parameter-estimation code (the Excel workbook `Model\_Calculator'
-sheet implements the identical pipeline in spreadsheet form). Deposit the
-code in a public repository and reference the DOI here and in the Data
-availability statement.}
+The listing below (also provided as \texttt{code/ln3\_model.py}) implements Eqs.~\ref{eq:S1}--\ref{eq:S9}, the multi-start calibration of Section~\ref{si:dielfit}, the total-porosity re-fit of Section~\ref{si:porosityfit}, and the thermal fits of Section~\ref{si:degenerate}. It requires NumPy and SciPy only. The design maps and loci of Figure~4 of the main text and Figures~S3--S5 are obtained by evaluating \texttt{ln3} on a grid of (h-BN content, porosity). \hl{Deposit the code in a public repository and reference the DOI here and in the Data availability statement.}
+
+\lstinputlisting[language=Python]{code/ln3_model.py}
 
 \end{document}

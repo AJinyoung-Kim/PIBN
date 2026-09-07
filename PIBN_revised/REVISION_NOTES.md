@@ -8,7 +8,8 @@
 | 파일 | 내용 |
 |---|---|
 | `paper.tex` | 수정 본문 (elsarticle). `pdflatex → bibtex → pdflatex ×2` 로 오류 없이 컴파일됨 (19 pp.) |
-| `supplementary.tex` | SI. 본문에서 이동한 4개 패널(Fig. S2–S5) 추가, 기존 SI 그림 S6–S8로 재번호 |
+| `supplementary.tex` | SI 완성본(13쪽). S1 모델 그림(S1–S5), S2 재료 특성(사진·top-view·FT-IR·EDS·porosity), S3 모델 상세·벤치마크(Table S2–S4), S4 파라미터 추정(Table S5–S7), S5 Python 코드 |
+| `code/ln3_model.py` | 3상 LN 모델·피팅·벤치마크 재현 코드 (SI S5에 수록; numpy+scipy로 실행 확인) |
 | `refs.bib` | 변경 없음 |
 | `figures/Fig1.png` | SEM. 30/50 wt% Δt 라벨의 별표(*) 제거 (caption의 별표 문구도 삭제) |
 | `figures/Fig2.png` | 구 2a + 3a + 3c 통합 (ε, λ, IR thermography) |
@@ -139,3 +140,24 @@ SI(`supplementary.tex`)도 10 pt, 1.5배 줄간격, 8 pt 캡션으로 맞췄습�
 - 대안 2: *A Three-Phase Lewis–Nielsen Framework for Porous Polyimide/Boron Nitride Dielectric Films*
 
 SI와 Highlights의 제목도 함께 바꿨습니다.
+
+## SI 완성 (3차 반영)
+
+본문의 3상 LN 모델을 `code/ln3_model.py`로 재구현해 본문 수치를 먼저 재현했습니다: Table 2의 LN 예측값(±0.002), RMSE 0.43/0.36, R² −3.9/−3.0, 열전도 RMSE 0.027/0.030, NP/HP 70 wt% 예측 0.262/0.315. 이 구현으로 SI의 빈 절을 채웠습니다.
+
+| 절 | 내용 | 비고 |
+|---|---|---|
+| S2.1–S2.3 | 사진(S6)·top-view SEM(S7)에 조성/행 라벨을 그림에 직접 추가, FT-IR 밴드 해석(1778/1722 C=O, ~1500 C=C, 1366 C–N–C + B–N stretch, ~810 B–N bending) | 본문 2.3의 밴드 값을 그림 기준(1778/1722/1366)으로 통일 |
+| S2.5 | 기공률 측정 설명; 기공 크기 분포는 "available on request" | 분포 데이터 없음 |
+| S3.1 | LN 유도(Eq. S1–S8), 극한(A→0 series, A→∞ parallel, A=1.5 MG), 목적함수 Eq. S8 | 본문의 "Eq. S8" 인용과 일치 |
+| S3.2 | Table S2: 부피분율·ρ_solid·ϕ_open·ϕ_total | |
+| S3.3 | **ϕ_total 재피팅**: 7개 필름 RMSE 0.31→0.24, R² −0.9→−0.2; A_pore 0.08→0.43(여전히 1.5보다 훨씬 작음) | 본문 4.2에 한 문장 추가 |
+| S3.4 | 불확도 전파: λ 9.9%, ε ±0.05/14%(inter-lab), porosity ±2–5 pp, CTE ±1 | 주황색 가안 유지 |
+| S3.5 | Table S4 혼합규칙 벤치마크: 30–70 wt% NP에서 LN 0.26 vs Lichtenecker 0.55, Bruggeman 0.73, MG 0.85; Wiener 상·하한 포함 | 본문 3.1을 "0.55–0.85, NP films of 30–70 wt%"로 수정(RMSE 0.25/0.26 불일치 해소: 4.2도 0.26) |
+| S4.1 | Table S5 A_BN ridge(0.05–6에서 RMSE 변화 0.003), Table S6 ϕ_max 스캔(변화 <0.01) | 본문 3.4·Table 1의 "0.03 (Table S11)" → "<0.01 (Table S6)" |
+| S4.2 | 열 피팅: λ_BN,eff 6.65(λ_air 0.026) / 6.81(λ_air 0.023), 비구속 피팅 축퇴(A→2000, ϕ_max→0.06, RMSE 0.025), Table S7 A–ϕ_max 능선 | 본문의 6.81은 유지, SI에서 λ_air 의존성으로 설명 |
+| S5 | `code/ln3_model.py` 전체 listing | Zenodo 기탁 안내만 주황색 |
+
+주의할 점:
+- **Series(Wiener 하한) 모델이 30–70 wt% NP에서 LN보다 잘 맞습니다(0.17 vs 0.26).** SI에서는 이를 A→0 극한과 연결해 "A_pore≈0.08은 기공 단계가 series 한계에 가깝다"는 해석으로 기술했습니다. 본문 3.1의 "outperforms the standard mixing rules (Lichtenecker, MG, Bruggeman)"는 그대로 참이지만, 심사자가 series bound를 물을 수 있습니다.
+- ϕ_total 재피팅에서 A_pore가 0.43으로 바뀌므로 "A_pore = 0.08 fingerprint"는 open-porosity 입력에 한정된 값입니다(SI S3.3에 명시).
