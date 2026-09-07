@@ -6,7 +6,7 @@
 %% Compile with pdfLaTeX. Section numbering uses the S-prefix.
 %% Orange \hl{} marks = content to be completed by the authors.
 %% ============================================================
-\documentclass[11pt,a4paper]{article}
+\documentclass[10pt,a4paper]{article}
 \usepackage[margin=2.4cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -15,6 +15,8 @@
 \usepackage{siunitx}
 \usepackage{booktabs}
 \usepackage{xcolor}
+\usepackage{setspace}
+\usepackage[font=footnotesize]{caption}
 \newcommand{\hl}[1]{\colorbox{orange}{\parbox{0.93\linewidth}{#1}}}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
 \graphicspath{{figures/}}
@@ -40,6 +42,7 @@
 \date{}
 
 \begin{document}
+\setstretch{1.5}
 \maketitle
 
 %% ------------------------------------------------------------
@@ -49,14 +52,14 @@
 \subsection{Shape-factor sensitivity analysis}
 \label{si:shapefactor}
 
-Fig.~\ref{fig:S1} examines the sensitivity of the three-phase Lewis--Nielsen
+Figure~\ref{fig:S1} examines the sensitivity of the three-phase Lewis--Nielsen
 predictions to the h-BN shape factor $A$ over the range 0.3--6.0
 (needle-like rods to aligned platelets), evaluated at the NP mean porosity
 of 65.6\% with $\phimax = 0.60$ fixed. For the dielectric model
-(Fig.~\ref{fig:S1}a), all $A$ curves are nearly indistinguishable,
+(Figure~\ref{fig:S1}a), all $A$ curves are nearly indistinguishable,
 confirming that \eps{} is dominated by the pore term and that the fitted
 dielectric \ABN{} is weakly determined. For the thermal model
-(Fig.~\ref{fig:S1}b), all $A = 0.3$--6.0 curves remain below the
+(Figure~\ref{fig:S1}b), all $A = 0.3$--6.0 curves remain below the
 experimental NP 70~wt\% value (0.16--0.18 vs.\
 \SI{0.305}{\watt\per\meter\per\kelvin}), reinforcing that the 70~wt\%
 enhancement is driven by proximity to maximum packing and incipient
@@ -81,7 +84,7 @@ attributed to any plausible single-particle shape factor.}
 
 \subsection{Parity plot of the dielectric model}
 \label{si:parity}
-Fig.~\ref{fig:S2} compares the three-phase LN prediction with the measured
+Figure~\ref{fig:S2} compares the three-phase LN prediction with the measured
 dielectric constant for all ten films. The model RMSE (0.43 NP, 0.36 HP)
 exceeds the standard deviation of the measured data (0.19 NP, 0.18 HP), so
 the coefficient of determination is negative (Section~4.2 of the main
@@ -99,10 +102,10 @@ the largest residuals.}
 
 \subsection{Porosity sensitivity at fixed composition}
 \label{si:porosity}
-Fig.~\ref{fig:S3} shows the calibrated \eps{} and \lam{} at fixed 50~wt\%
+Figure~\ref{fig:S3} shows the calibrated \eps{} and \lam{} at fixed 50~wt\%
 h-BN as porosity is varied. Both properties rise as porosity falls, so
 porosity alone cannot decouple them; the same coupling is shown for every
-composition by the loci of Fig.~4c of the main text.
+composition by the loci of Figure~4c of the main text.
 
 \begin{figure}[htbp]
 \centering
@@ -116,12 +119,12 @@ model. Circles and squares mark the measured NP and HP 50~wt\% films
 
 \subsection{Feasible processing window}
 \label{si:window}
-Fig.~\ref{fig:S4} shows the porosity range that satisfies each of the three
+Figure~\ref{fig:S4} shows the porosity range that satisfies each of the three
 target specifications defined in Section~4.8 of the main text (Basic:
 $\eps < 2.0$, $\lam > \SI{0.05}{\watt\per\meter\per\kelvin}$; Advanced:
 $\eps < 1.8$, $\lam > \SI{0.08}{\watt\per\meter\per\kelvin}$; Future:
 $\eps < 1.6$, $\lam > \SI{0.12}{\watt\per\meter\per\kelvin}$), derived from
-the design maps of Fig.~4a,b of the main text.
+the design maps of Figure~4a,b of the main text.
 
 \begin{figure}[htbp]
 \centering
@@ -135,7 +138,7 @@ states overlaid.}
 
 \subsection{Porosity that maximizes thermal conductivity under a dielectric ceiling}
 \label{si:optimum}
-Fig.~\ref{fig:S5} shows, for each h-BN loading, the porosity that maximizes
+Figure~\ref{fig:S5} shows, for each h-BN loading, the porosity that maximizes
 \lam{} under a given \eps{} ceiling. The five composition curves stay within
 10 percentage points of one another, so the porosity target is set almost
 entirely by the dielectric ceiling while the achievable \lam{} at that

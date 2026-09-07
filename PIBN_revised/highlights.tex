@@ -1,0 +1,52 @@
+%% Porous PI/h-BN films by NIPS + three-phase Lewis--Nielsen modeling -- REVISED manuscript
+%% elsarticle class. Compile: pdflatex -> bibtex -> pdflatex x2
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage[hidelinks]{hyperref}
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage{setspace}          % 1.5 line spacing as in the JMS submission layout
+\usepackage[font=footnotesize]{caption}
+
+% per-mode=power: W/(m K) -> W m^-1 K^-1, /cm -> cm^-1 throughout
+\sisetup{detect-all,per-mode=power}
+\DeclareSIUnit{\ppm}{ppm}
+\graphicspath{{figures/}}
+
+% convenience macros
+\newcommand{\eps}{\ensuremath{\varepsilon_r}}   % relative permittivity (matches figure axis labels)
+\newcommand{\lam}{\ensuremath{\lambda}}
+\newcommand{\phimax}{\ensuremath{\phi_{\max}}}
+\newcommand{\phiBN}{\ensuremath{\phi_{\mathrm{BN}}}}
+\newcommand{\Apore}{\ensuremath{A_{\mathrm{pore}}}}
+\newcommand{\ABN}{\ensuremath{A_{\mathrm{BN}}}}
+\newcommand{\lamBN}{\ensuremath{\lambda_{\mathrm{BN,eff}}}}
+\newcommand{\Wmk}{\si{\watt\per\meter\per\kelvin}}
+% orange brackets = author input still required (instrument models, uncertainties, DOI, names)
+\newcommand{\hl}[1]{\textcolor{orange}{\textbf{[#1]}}}
+
+
+
+\begin{document}
+\setstretch{1.5}
+\section*{Highlights}
+\noindent\textbf{Porous polyimide/hexagonal boron nitride films by non-solvent induced phase separation: a three-phase Lewis--Nielsen description of dielectric and thermal properties}
+\begin{itemize}
+\item Porous PI/h-BN films made by NIPS over the full 0--70~wt\% h-BN range
+\item Three-phase Lewis--Nielsen model unifies dielectric and thermal behavior
+\item Pore shape factor $A=0.08$ fingerprints NIPS sponge vs.\ spherical pores
+\item Single-parameter thermal fit: $\lamBN = \SI{6.8}{\watt\per\meter\per\kelvin}$, interface-limited
+\item 70~wt\% h-BN gives the best measured \eps--\lam{} balance; model loci agree
+\end{itemize}
+\end{document}

@@ -7,7 +7,7 @@
 
 | 파일 | 내용 |
 |---|---|
-| `paper.tex` | 수정 본문 (elsarticle). `pdflatex → bibtex → pdflatex ×2` 로 오류 없이 컴파일됨 (29 pp.) |
+| `paper.tex` | 수정 본문 (elsarticle). `pdflatex → bibtex → pdflatex ×2` 로 오류 없이 컴파일됨 (21 pp.) |
 | `supplementary.tex` | SI. 본문에서 이동한 4개 패널(Fig. S2–S5) 추가, 기존 SI 그림 S6–S8로 재번호 |
 | `refs.bib` | 변경 없음 |
 | `figures/Fig1.png` | SEM. 30/50 wt% Δt 라벨의 별표(*) 제거 (caption의 별표 문구도 삭제) |
@@ -16,7 +16,9 @@
 | `figures/Fig4.png` | 구 4a + 4b + 6b + 6c 통합 (design maps, ε–λ loci, max λ) |
 | `figures/FigS2_parity.png` … `FigS5_porosity_optimum.png` | 구 2b, 3b, 6a, 6d |
 | `figures/FigS6_photos.png`, `FigS7_topview.png`, `FigS8_ftir.png` | 구 S2, S3, S4 |
+| `highlights.tex` / `highlights.pdf` | Highlights (Elsevier 제출용 별도 파일; 본문 PDF에서 분리) |
 | `paper.pdf`, `supplementary.pdf` | 컴파일 결과 |
+| `PIBN-REVISED.zip` | Overleaf Upload Project용 ZIP |
 | `paper_diff.pdf` | `latexdiff` (final → revised) 변경 추적본 |
 
 모든 본문/SI 그림은 기존 렌더링 PNG에서 패널을 잘라 재조합한 것입니다. 패널 안의 문장형 headline title은 모두 제거했고, 패널 문자는 새 순서(Fig. 2b ← 구 3a, Fig. 4c ← 구 6b, Fig. 4d ← 구 6c)에 맞게 다시 넣었습니다. 축 라벨은 ε_r 그대로이며, 본문 표기를 `\eps` = `\varepsilon_r`로 바꿔 통일했습니다(가이드 §2의 두 번째 선택지). 원 데이터/스크립트로 재생성하면 해상도가 더 좋아집니다.
@@ -73,3 +75,20 @@
 7. **유전율 재측정**: 접촉 전극의 air-gap 직렬 정전용량이 음의 R²와 NP 계열의 역방향 조성 경향의 가장 그럴듯한 실험적 원인. 스퍼터/도포 전극으로 재측정 권장(4.2에 한 문장으로 명시함).
 8. **Reference "Bischoff [22]"**: `refs.bib`에 Bischoff 항목이 없습니다(28개 항목 모두 연도 포함). 가이드가 언급한 참고문헌은 다른 원고의 것으로 보입니다.
 9. **Overfull hbox** 6건(줄 번호 조판 특성상 원본에도 동일하게 존재; 2.5의 `[with/without]` 자리표시자는 값을 넣으면 해소됨).
+
+## 조판 양식 (JMS 투고본 양식 적용, 내용 변경 없음)
+
+첨부하신 *Composite Hot-Melt/Epoxy Potting Architecture* (J. Membr. Sci. 투고본) PDF의 양식을 측정해 그대로 맞췄습니다.
+
+| 항목 | JMS 투고본 | 적용 |
+|---|---|---|
+| 용지·본문 크기 | A4, 10 pt (elsarticle preprint) | `\documentclass[preprint,a4paper]{elsarticle}` |
+| 본문 영역 | 가로 65–531 pt, 세로 113–751 pt | `geometry` left 65 / right 64 / top 100 / bottom 88 pt |
+| 줄간격 | 18 pt 피치 (1.5배) | `setspace`, `\setstretch{1.5}` |
+| 줄번호 | 없음 | `lineno` 제거 |
+| 캡션 | 8 pt, "Figure N:" | `caption` font=footnotesize, `\figurename` → Figure |
+| 그림 인용 | "Figure 2", "Figures S2 and S3" | 본문·SI의 `Fig.~`/`Figs.~` → `Figure~`/`Figures~` (29곳) |
+| 표제부 | 저자·소속·교신저자 각주·e-mail | 자리표시자(`\hl{Author names}`, `[corresponding e-mail]`) 추가 |
+| Highlights | 본문 PDF에 없음 | `highlights.tex`로 분리 (내용 동일) |
+
+SI(`supplementary.tex`)도 10 pt, 1.5배 줄간격, 8 pt 캡션으로 맞췄습니다. `paper_diff.pdf`는 이 양식 위에서 다시 생성했으며, 그림 인용 표기 변경은 diff에서 제외해 내용 변경만 표시됩니다.
