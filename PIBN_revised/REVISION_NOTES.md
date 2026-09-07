@@ -7,7 +7,7 @@
 
 | 파일 | 내용 |
 |---|---|
-| `paper.tex` | 수정 본문 (elsarticle). `pdflatex → bibtex → pdflatex ×2` 로 오류 없이 컴파일됨 (21 pp.) |
+| `paper.tex` | 수정 본문 (elsarticle). `pdflatex → bibtex → pdflatex ×2` 로 오류 없이 컴파일됨 (19 pp.) |
 | `supplementary.tex` | SI. 본문에서 이동한 4개 패널(Fig. S2–S5) 추가, 기존 SI 그림 S6–S8로 재번호 |
 | `refs.bib` | 변경 없음 |
 | `figures/Fig1.png` | SEM. 30/50 wt% Δt 라벨의 별표(*) 제거 (caption의 별표 문구도 삭제) |
@@ -35,7 +35,7 @@
 7. `\sisetup{per-mode=power}` 적용, `\DeclareSIUnit{\ppm}{ppm}` 추가. 본문의 `W/m K`, `ppm/K`, `/cm` 문자열 표기를 모두 `\SI`/`\si`로 통일.
 
 ### §3 섹션별
-- Title: 제안 A(17단어) 채택. 제안 B를 원하시면 `\title{}` 한 줄만 바꾸면 됩니다.
+- Title: 가이드 제안 A를 거쳐, 최종적으로 참조 논문식 제목으로 교체(아래 '문체' 절 참조).
 - Highlights: 5번 교체, 2번 "3-phase" → "Three-phase". 5개 모두 85자 이내(62–72자).
 - Intro: 문단 1–7 모두 가이드대로. LN 약어를 문단 6에서 정의.
 - 2 Materials and methods: 제목·소제목 변경. 2.2 NMP 고정 설계 문장, 2.3 점도 근거 문장, 2.4 dwell 주석 삭제 + 능동 재작성, 2.5 기기·전극 자리표시자, `23 ± 2 °C`, ASTM E1269, n = 1 및 불확도 문장, open/total porosity 정의 문장.
@@ -92,3 +92,31 @@
 | Highlights | 본문 PDF에 없음 | `highlights.tex`로 분리 (내용 동일) |
 
 SI(`supplementary.tex`)도 10 pt, 1.5배 줄간격, 8 pt 캡션으로 맞췄습니다. `paper_diff.pdf`는 이 양식 위에서 다시 생성했으며, 그림 인용 표기 변경은 diff에서 제외해 내용 변경만 표시됩니다.
+
+## 문체·화법 (참조 논문 2편의 화법으로 재작성)
+
+참조: Kim et al., *A Reworkable Composite Hot-Melt/Epoxy Potting Architecture …* (J. Membr. Sci. 투고본), Kim et al., *Sorp-Vection-Based Membrane Silicone Oil Purification* (Angew. Chem. 2026).
+
+두 논문에서 추출한 화법 원칙과 적용:
+
+| 원칙 | 참조 논문 예 | 적용 |
+|---|---|---|
+| 1인칭 능동태로 저자 행위 서술 | "Here we report", "we compare", "We evaluate", "We therefore fixed" | Abstract("Here we report … We measure …"), Intro 마지막 문단, 2.5, 3.1–3.4("We treat", "We fitted", "We therefore fixed"), 4.8("We define three specifications"), Conclusions("We fabricated …") |
+| 결과 → 해석을 한 호흡에 | "The CE module remained leak-free to 500 psia but leaked at 600 psia. The maximum sustainable pressure is therefore governed by …" | 4.1–4.4의 모든 결과 문단을 "수치 문장 + therefore/so/evidently 해석 문장" 구조로 재배열 |
+| 짧은 문장, 관계절 최소화 | 평균 20–25단어 | 40단어 이상 문장 분할, 도입구("It is worth noting", "In order to", "It should be emphasized") 삭제 |
+| Methods는 기기·조건만 압축 | 참조 논문 Methods 2문단 | 2.1–2.5를 조건 나열형으로 압축, 불확도 문장은 별도 문단 |
+| 목록은 (i)(ii)(iii) | "three end-seal configurations: (i) … (ii) … (iii)" | 3.2의 종횡비 감소 요인, 3.4 Validation의 세 근거 |
+| 절제된 강조어 | "Notably" 1회, "markedly" 1회 | "Notably" 1회(4.1)만 유지; very/extremely/significantly 0건 |
+| 결론은 산문, "These results establish …"로 마무리 | 두 편 공통 | Conclusions 3문단, 마지막 문장 동일 형식 |
+| 서두 문장은 문제 정의 → "Here we report" | 두 편 공통 | Intro 문단 1 재작성, 문단 7 "Here we report …" |
+
+분량: 8041 → 7177 단어(약 11% 감축), 본문 PDF 21 → 19쪽. 수치·참고문헌·표·수식·`\hl{}` 자리표시자는 그대로입니다.
+
+### 제목
+참조 논문 제목 형식(짧은 명사구, Title Case, 콜론 없음, 8–14단어)에 맞춰 교체:
+
+- **채택**: *Model-Guided Design of Porous Polyimide/Boron Nitride Films for Low-Permittivity, Thermally Conductive Packaging* (13단어)
+- 대안 1: *Porous Polyimide/Boron Nitride Films with Decoupled Porosity and Filler Control of Permittivity and Thermal Conductivity*
+- 대안 2: *A Three-Phase Lewis–Nielsen Framework for Porous Polyimide/Boron Nitride Dielectric Films*
+
+SI와 Highlights의 제목도 함께 바꿨습니다.
